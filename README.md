@@ -45,7 +45,8 @@ python -m venv .
 
 ## nmap installation
 See the official [nmap documentation](https://nmap.org/download) for installation instructions, depending on which OS will be running script. 
-Using the above ps1 wrapper script is only meant for running on Windows system, as such this file isn't necessary when running from Linux.
+
+**NOTE:** Using the above ps1 wrapper script is only meant for running on Windows system, as such this file isn't necessary when running from Linux.
 
 ## modules
 
