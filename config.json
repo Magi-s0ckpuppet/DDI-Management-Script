@@ -1,0 +1,18 @@
+{
+  "server" : {
+     "service"  : "ddi.example.org",
+     "user"     : "DDI_USERNAME",
+     "password" : "DDI_PASSWORD",
+     "certs"    : "PEMSTART_CERT_LOCATION"
+  },
+  "domain" : "example.org",
+  "sites" : {
+    "internal" : {
+      "name" : "example-Internal"
+    }
+    ,"external" : {
+      "name" : "example-External",
+      "insert" : "nodns"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Creates a new GMSA account on scheduler host that runs script (requires 
+# domain admin or other relevant permissions when running against remote hosts)
+New-ADServiceAccount -Name gMSA-ddiscan$ -DNSHostName dc.example.org -PrincipalsAllowedToRetrieveManagedPassword schedulerhost$
+Get-ADServiceAccount gMSA-ddiscan$ -Properties *
+
+
+# Installs the RSAT-AD-PowerShell module for setting up GMSA account on local host
+# then removes PowerShell module from host
+Install-WindowsFeature RSAT-AD-PowerShell
+Install-ADServiceAccount gMSA-ddiscan$
+Remove-WindowsFeature RSAT-AD-PowerShell
+
+
+# Set GMSA account as task owner for running DDI script, allows script to run but 
+# prevents modifications from other user accounts
+$pric = New-ScheduledTaskPrincipal -UserId MS\gmsa-ddiscan$ -LogonType Password
+Set-ScheduledTask -TaskName "\DDI\DDI - Clients Subnet" -Principal $pric
+
+
+# Set my user account as task owner, to allow task modifications
+$PW = Read-Host
+schtasks /change /TN "\DDI\DDI - Clients Subnet" /RU MS\user1 /RP $PW
