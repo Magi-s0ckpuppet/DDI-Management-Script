@@ -10,20 +10,21 @@ ddi                  is a python command line script to scan the network using
                      nmap and/or inspect/update a SOLIDserver
 ddi.py               is a python module to processs ddi command line requests
 SOLIDserverRest.py   is a python module to communicat with SOLIDserver API: REST
-launch.ps1           is a PowerShell wrapper script that launches above components,
-                     as well as log the output and send out an email of said log.
-                     This is meant only to be run from task scheduler.
+launch.ps1           is a PowerShell wrapper script that launches above components
+                     on Windows, as well as log the output and send out an email of
+                     script results. This is meant only to be run from task scheduler.
 ```
 
 # Quick Start
 
 1. Clone code to location
 2. Create environment 
-3. Down load required python modules
-4. Create cert bundle if required
-5. Create config file
-6. Create files of subnets if desired
-7. Execute ddi
+3. Install nmap on localhost running script
+4. Download required python modules
+5. Create cert bundle if required
+6. Create config file
+7. Create files of subnets if desired
+8. Execute ddi
 
 # Setup
 
@@ -42,6 +43,10 @@ python -m venv .
 ./Scripts/Activate.ps1
 ```
 
+## nmap installation
+See the official [nmap documentation](https://nmap.org/download) for installation instructions, depending on which OS will be running script. 
+Using the above ps1 wrapper script is only meant for running on Windows system, as such this file isn't necessary when running from Linux.
+
 ## modules
 
 ```
@@ -50,7 +55,7 @@ python pip list
 ```
 
 ## config
-See ddi documentation for details and example
+See documentation in ddi.py file (in the `Config:` section) for details and examples
 
 ## create scan subnet files
 
