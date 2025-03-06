@@ -21,10 +21,9 @@ launch.ps1           is a PowerShell wrapper script that launches above componen
 2. Create environment 
 3. Install nmap on localhost running script
 4. Download required python modules
-5. Create cert bundle if required
-6. Create config file
-7. Create files of subnets if desired
-8. Execute ddi
+5. Create config file (and cert bundle if required)
+6. Create files of subnets if desired
+7. Execute ddi
 
 # Setup
 
